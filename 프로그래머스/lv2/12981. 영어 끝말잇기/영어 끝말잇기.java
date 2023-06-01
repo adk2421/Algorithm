@@ -7,13 +7,10 @@ class Solution {
         temp.add(words[0]);
         
         for( int i = 1; i < words.length; i++ ) {
-            if( temp.contains(words[i]) ) {
-                answer[0] = i % n + 1;
-                answer[1] = i / n + 1;
-                break;
+            if( temp.contains(words[i])
+               || words[i-1].split("")[words[i-1].length()-1].hashCode()
+               != words[i].split("")[0].hashCode() ) {
                 
-            } else if( words[i - 1].split("")[words[i - 1].length() - 1].hashCode() 
-                      != words[i].split("")[0].hashCode() ) {
                 answer[0] = i % n + 1;
                 answer[1] = i / n + 1;
                 break;
