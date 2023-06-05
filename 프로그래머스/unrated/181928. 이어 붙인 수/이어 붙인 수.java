@@ -4,11 +4,11 @@ class Solution {
         
         for( int num : num_list ) {
             if( num % 2 == 1 )
-                o = (o + num) * 10;
+                o = o * 10 + num;
             else
-                e = (e + num) * 10;
+                e = e * 10 + num;
         }
         
-        return o / 10 + e / 10;
+        return o + e;
     }
 }
