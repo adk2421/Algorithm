@@ -4,8 +4,7 @@ class Solution {
              n += item.equals("w") ? 1
                 : item.equals("s") ? -1
                 : item.equals("d") ? 10
-                : item.equals("a") ? -10
-                : 0;
+                : -10;
         }
         return n;
     }
