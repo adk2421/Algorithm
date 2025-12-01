@@ -1,21 +1,23 @@
-import java.util.List;
-import java.util.Arrays;
-import java.util.Collections;
-
 class Solution {
+
+    char[] arr;
+
     public String solution(String my_string, int[][] queries) {
-        String answer = my_string;
-        
+
+        arr = my_string.toCharArray();
+
         for (int[] query : queries) {
-            String prefix = answer.substring(0, query[0]);
-            String suffix = answer.substring(query[1] + 1, answer.length());
-            
-            List<String> splitStr = Arrays.asList(answer.substring(query[0], query[1] + 1).split(""));
-            Collections.reverse(splitStr);
-            
-            answer = prefix + String.join("", splitStr) + suffix;
+            reverse(query[0], query[1]);
         }
-        
-        return answer;
+
+        return new String(arr);
+    }
+
+    private void reverse(int s, int e) {
+        while (s < e) {
+            char temp = arr[s];
+            arr[s++] = arr[e];
+            arr[e--] = temp;
+        }
     }
 }
